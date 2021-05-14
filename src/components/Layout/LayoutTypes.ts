@@ -1,3 +1,4 @@
 export interface LayoutTypes {
-  children: React.ReactElement | React.ReactNode
+  // eslint-disable-next-line no-undef
+  children: React.ReactElement | React.ReactNode;
 }

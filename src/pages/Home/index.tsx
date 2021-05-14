@@ -1,15 +1,16 @@
-import React, {useState } from 'react'
-import Search from '../../components/Search'
-import { Container } from './styles'
-import { AlbumType } from './HomeTypes'
+import React, { useState } from 'react';
+import Search from '../../components/Search';
+import { Container } from './styles';
+import { AlbumType } from './HomeTypes';
+import Row from './components/Row/row';
 
 const Home = () => {
   const [albums, setAlbums] = useState<AlbumType[]>([]);
 
   const handleGetApi = async (data: any) => {
-    console.log(data)
+    console.log(data);
     setAlbums(data);
-  }
+  };
 
   return (
     <Container>
@@ -17,7 +18,7 @@ const Home = () => {
       <table>
         <thead>
           <tr>
-            <th>img</th>
+            <th>Capa</th>
             <th>Album</th>
             <th>Artista</th>
             <th>TotalFaixa</th>
@@ -25,19 +26,12 @@ const Home = () => {
         </thead>
         <tbody>
           {albums.map(album => (
-            <tr>
-              <td>
-                <img src={album.images[0].url} alt={album.name} />
-              </td>
-              <td>{album.name}</td>
-              <td>{album.artists.map(artist => artist.name).join(', ')}</td>
-              <td>{album.total_tracks}</td>
-            </tr>
+            <Row album={album} />
           ))}
         </tbody>
       </table>
     </Container>
-  )
-}
+  );
+};
 
 export default Home;

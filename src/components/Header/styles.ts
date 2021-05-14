@@ -26,6 +26,6 @@ export const Container = styled.header`
   h1 {
     padding-left: 16px;
     color: #fefefe;
-    font-size: 2.2rem
+    font-size: 2.2rem;
   }
 `;

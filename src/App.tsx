@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'
+import axios from 'axios';
 import Routes from './routes/routes';
-import { LoginContext, useLoginContext } from './context/Login'
+import { LoginContext, useLoginContext } from './context/Login';
 
 import GlobalStyle from './styles/global';
 
 interface TokenType {
-  access_token: string
+  access_token: string;
 }
 
 const App = () => {
-  const [isFirstTime, setIsFirstTime] = useState(true)
-  const [token, setToken] = useState('')
-  const { setCurrentLogin } = useLoginContext()
+  const [isFirstTime, setIsFirstTime] = useState(true);
+  const [token, setToken] = useState('');
+  const { setCurrentLogin } = useLoginContext();
 
   const handleGetToken = async () => {
     const response = await axios.post<TokenType>('https://accounts.spotify.com/api/token', '', {
@@ -20,18 +20,18 @@ const App = () => {
       headers: { Authorization: `Basic ${btoa(`${process.env.REACT_APP_CLIENTID}:${process.env.REACT_APP_CLIENTSECRET}`)}` },
     });
     setToken(response.data.access_token);
-  }
+  };
 
   useEffect(() => {
-    setIsFirstTime(false)
+    setIsFirstTime(false);
 
     if (isFirstTime === false) {
-      handleGetToken()
+      handleGetToken();
     }
-  }, [isFirstTime])
+  }, [isFirstTime]);
 
   return (
-    <LoginContext.Provider value={{ login: {token}, setCurrentLogin }}>
+    <LoginContext.Provider value={{ login: { token }, setCurrentLogin }}>
       <Routes />
       <GlobalStyle />
     </LoginContext.Provider>
