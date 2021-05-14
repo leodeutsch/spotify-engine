@@ -5,7 +5,7 @@ import ptBr from 'date-fns/locale/pt-BR';
 import { useLoginContext } from '../../context/Login';
 import api from '../../service/api';
 import ArrowLeft from '../../assets/left-arrow.png';
-import { AlbumInformationContent, Artist, Content, Name, ReleaseDate, SubInfos, Header, Tracks } from './styles';
+import { AlbumInformationContent, Artist, Content, Name, ReleaseDate, SubInfos, Header, Tracks, AnimationContainer } from './styles';
 import Row from './Components/Row/row';
 
 interface ParamsType {
@@ -43,7 +43,7 @@ const AlbumInfo = () => {
   }, []);
 
   return (
-    <>
+    <AnimationContainer>
       <Header>
         <button type="button" onClick={handleGoBack}>
           <img src={ArrowLeft} alt="Voltar" />
@@ -81,7 +81,7 @@ const AlbumInfo = () => {
           </Tracks>
         </Content>
       )}
-    </>
+    </AnimationContainer>
   );
 };
 

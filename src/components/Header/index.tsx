@@ -7,7 +7,7 @@ const Header = () => (
   <Container>
     <div>
       <img src={logoImg} alt="Logo" />
-      <h1>Spotify Eng</h1>
+      <h1>Spotify Engine</h1>
     </div>
   </Container>
 );

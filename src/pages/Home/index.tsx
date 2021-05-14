@@ -8,7 +8,6 @@ const Home = () => {
   const [albums, setAlbums] = useState<AlbumType[]>([]);
 
   const handleGetApi = async (data: any) => {
-    console.log(data);
     setAlbums(data);
   };
 

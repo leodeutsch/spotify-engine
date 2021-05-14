@@ -1,7 +1,9 @@
 import styled from 'styled-components';
+import { appearFromLeft } from '../../styles/animations';
 
 export const Container = styled.div`
   width: 100%;
+  animation: ${appearFromLeft} 1s;
   h1 {
     color: #333;
     font-weight: bold;

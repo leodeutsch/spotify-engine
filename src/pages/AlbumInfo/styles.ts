@@ -1,4 +1,9 @@
 import styled from 'styled-components';
+import { appearFromRight } from '../../styles/animations';
+
+export const AnimationContainer = styled.div`
+  animation: ${appearFromRight} 2s;
+`;
 
 export const Header = styled.div`
   button {
